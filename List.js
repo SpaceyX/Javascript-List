@@ -1,7 +1,28 @@
 class List {
+    //returns the lenght of the underlying array.
+    get length() {
+        return this.source.length;
+    }
+
     //initializes as new List-object.
-    constructor() {
-        this.source = [];
+    constructor(array) {
+        if(array) {
+            this.source = array;
+        } else {
+            this.source = [];    
+        }
+    }
+
+    //implement iterator.
+    *iterator() {
+        for (let i = 0; i < this.source.length; i++) {
+            yield this.source[i];
+        }
+    }
+
+    //implement iterator.
+    [Symbol.iterator]() {
+        return this.iterator();
     }
 
     //appends and item.
@@ -90,5 +111,15 @@ class List {
             y++;
         }
         this.source = x;
+    }
+
+    //determines if the underlying array contains a specific item.
+    contains(object) {
+        for(let i = 0; i < this.source.length; i++) {
+            if(this.source[i] === object) {
+                return true;
+            }
+        }
+        return false;
     }
 }
