@@ -6,10 +6,11 @@ class List {
 
     //initializes as new List-object.
     constructor(array) {
-        if(array) {
+        if (array) {
             this.source = array;
-        } else {
-            this.source = [];    
+        }
+        else {
+            this.source = [];
         }
     }
 
@@ -32,8 +33,8 @@ class List {
 
     //removes a specific item by reference.
     remove(object) {
-        for(let i = this.source.length; i > -1; i--) {
-            if(object === this.source[i]) {
+        for (let i = this.source.length; i > -1; i--) {
+            if (object === this.source[i]) {
                 this.source.splice(i, 1);
                 return;
             }
@@ -56,11 +57,12 @@ class List {
     insert(index, object) {
         let x = [];
         let off = 0;
-        for(let i = 0; i < this.source.length + 1; i++) {
-            if(index == i) {
+        for (let i = 0; i < this.source.length + 1; i++) {
+            if (index == i) {
                 x[i] = object;
                 off = 1;
-            } else {
+            }
+            else {
                 x[i] = this.source[i - off];
             }
         }
@@ -76,7 +78,7 @@ class List {
     push(object) {
         let x = [];
         x[0] = object;
-        for(let i = 0; i < this.source.length; i++) {
+        for (let i = 0; i < this.source.length; i++) {
             x.push(this.source[i]);
         }
         this.source = x;
@@ -99,14 +101,14 @@ class List {
 
     //returns the last item.
     getLast() {
-        return this.source[this.source.length -1];
+        return this.source[this.source.length - 1];
     }
 
     //reverses the underlying array.
     reverse() {
         let x = [];
         let y = 0;
-        for(let i = this.source.length - 1; i > -1; i--) {
+        for (let i = this.source.length - 1; i > -1; i--) {
             x[y] = this.source[i];
             y++;
         }
@@ -115,8 +117,8 @@ class List {
 
     //determines if the underlying array contains a specific item.
     contains(object) {
-        for(let i = 0; i < this.source.length; i++) {
-            if(this.source[i] === object) {
+        for (let i = 0; i < this.source.length; i++) {
+            if (this.source[i] === object) {
                 return true;
             }
         }
