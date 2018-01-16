@@ -1,6 +1,7 @@
 class List {
     constructor() {
         this.source = [];
+        //
     }
 
     add(object) {
