@@ -26,6 +26,20 @@ class List {
         return x;
     }
 
+    insert(index, object) {
+        let x = [];
+        let off = 0;
+        for(let i = 0; i < this.source.length + 1; i++) {
+            if(index == i) {
+                x[i] = object;
+                off = 1;
+            } else {
+                x[i] = this.source[i - off];
+            }
+        }
+        this.source = x;
+    }
+
     push(object) {
         let x = [];
         x[0] = object;
