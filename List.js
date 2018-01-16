@@ -1,7 +1,6 @@
 class List {
     constructor() {
         this.source = [];
-        //
     }
 
     add(object) {
@@ -23,7 +22,7 @@ class List {
 
     pop() {
         let x = this.source[0];
-        removeAt(0);
+        this.removeAt(0);
         return x;
     }
 
@@ -31,11 +30,24 @@ class List {
         let x = [];
         x[0] = object;
         for(let i = 0; i < this.source.length; i++) {
-            add(this.source[x]);
+            x.push(this.source[i]);
         }
+        this.source = x;
     }
 
     peek() {
         return this.source[0];
+    }
+
+    get(index) {
+        return this.source[index];
+    }
+
+    getFirst() {
+        return this.peek();
+    }
+
+    getLast() {
+        return this.source[this.source.length -1];
     }
 }
